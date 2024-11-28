@@ -29,6 +29,8 @@ const onSubmit = async (event: FormSubmitEvent<Schema>) => {
       body: state
     })
 
+    console.log(token, user)
+
     store.storeUser({token, user});
     await router.push('/dashboard');
   } catch (e) {
