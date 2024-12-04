@@ -50,7 +50,7 @@ try {
     <ULink to="/dashboard/links" ><UButton icon="i-heroicons-arrow-uturn-left">Voltar</UButton></ULink>
   </div>
   <UContainer class="my-4">
-    <div class="cards grid grid-cols-4 gap-4 mx-auto my-2">
+    <div class="cards grid grid-cols-1 lg:grid-cols-4 gap-4 mx-auto my-2">
       <UCard>
         <template #header>
           <p>Link Original</p>
@@ -86,7 +86,7 @@ try {
     <div class="charts w-full">
     </div>
   </UContainer>
-  <UContainer class="my-4 grid grid-cols-2 gap-4">
+  <UContainer class="my-4 grid grid-cols-1 lg:grid-cols-2 gap-4">
     <UCard class="chart text-center">
       <h1>Sistemas Operacionais</h1>
       <PieChart :chartData="os" />
