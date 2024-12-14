@@ -25,6 +25,13 @@ export const UserSchema = defineMongooseModel({
             required: false,
             unique: false,
         },
-
+        password_reset_token: {
+            type: String,
+            required: false,
+        },
+        password_reset_creation: {
+            type: String,
+            required: false,
+        },
     }
 })

@@ -1,5 +1,3 @@
-import {useUserStore} from "~/stores/user";
-
 export const useUsers = () => {
     const token = useCookie('auth_token');
 
@@ -12,6 +10,29 @@ export const useUsers = () => {
             });
         } catch (error) {
             throw new Error(error)
+        }
+    }
+
+    const getUserByPasswordToken = async (passwordToken: string, state: object) => {
+        try {
+            return await $fetch(`/api/auth/reset-password/${passwordToken}`, {
+                method: 'POST',
+                body: state
+            });
+        } catch (error) {
+            throw new Error(error)
+        }
+    }
+
+    const createUser = async (state: object) => {
+        try {
+            const res = $fetch('/api/users/create', {
+                method: 'POST',
+                body: state
+            })
+            return res;
+        } catch (e) {
+            throw new Error(e)
         }
     }
 
@@ -40,5 +61,5 @@ export const useUsers = () => {
     }
 
 
-    return { getUser, editUser, deleteUser }
+    return { getUser, editUser, deleteUser, createUser, getUserByPasswordToken }
 }

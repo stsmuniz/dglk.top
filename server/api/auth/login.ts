@@ -17,6 +17,6 @@ export default defineEventHandler(async event => {
     user.token = token
     user.token_creation = new Date().toISOString()
     console.log(user)
-    UserSchema.findOneAndUpdate(user._id, user, { new: true })
+    UserSchema.findOneAndUpdate(user._id, {$set: user}, { new: true })
     return {token, user};
 })

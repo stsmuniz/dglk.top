@@ -33,7 +33,10 @@ const logout = async () => {
 <template>
   <header class="bg-gray-500">
     <UContainer class="flex items-center">
-      <UHorizontalNavigation :links="links">
+      <ULink to="/dashboard">
+        <span class="font-bold text-lg">dglk.top</span>
+      </ULink>
+      <UHorizontalNavigation :links="links" class="mx-4">
         <template #default="{link}">
           <span class="group-hover:text-primary relative">{{link.name}}</span>
         </template>

@@ -3,10 +3,10 @@ export default defineNuxtConfig({
     compatibilityDate: '2024-04-03',
     devtools: {enabled: true},
     modules: [
-        'nuxt-mongoose',
-        '@nuxt/ui',
-        '@pinia/nuxt',
-        '@pinia-plugin-persistedstate/nuxt',
+      'nuxt-mongoose',
+      '@nuxt/ui',
+      '@pinia/nuxt',
+      '@pinia-plugin-persistedstate/nuxt',
     ],
     mongoose: {
         uri: process.env.NUXT_MONGODB_URI,
@@ -24,5 +24,8 @@ export default defineNuxtConfig({
         mongodb_uri: '',
         ipinfoToken: '',
         jwtSecret: '',
+        resendApiKey: '',
+        resendFrom: '',
+        resendUrl: '',
     }
 })

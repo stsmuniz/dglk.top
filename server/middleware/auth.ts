@@ -1,8 +1,17 @@
 import jwt from "jsonwebtoken";
 
+const exceptions: Array<string> = [
+    '/api',
+    '/api/auth',
+    '/api/auth/reset-password',
+    '/api/links',
+    '/api/users/create',
+]
+
 export default defineEventHandler(async event => {
-    if (event.path.startsWith('/api/auth') || event.path.startsWith('/api/links') || !event.path.startsWith('/api'))
+    if (exceptions.filter(s => event.path.startsWith(s))) {
         return;
+    }
     const authorization = getRequestHeader(event, "authorization");
     if (!authorization) {
         throw createError({message: 'Token não encontrado.', status: 403, fatal: true})
